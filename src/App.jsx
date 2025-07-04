@@ -1,25 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
+import Layout from "./components/Layout";
+import Loader from "./components/Loader";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Portfolio from "./pages/Portfolio";
 import Skills from "./pages/Skills";
+import TimelineAbout from "./pages/TimelineAbout";
+// import Contact from "./pages/Contact";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="d-flex">
-      <Sidebar />
-      <main className="flex-grow-1 ms-5" style={{ paddingLeft: "260px" }}>
+    <div>
+      {loading ? (
+        <Loader />
+      ) : (
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/skills" element={<Skills />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/timelineAbout" element={<TimelineAbout />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            {/* <Route path="/contact" element={<Contact />} /> */}
+          </Route>
         </Routes>
-      </main>
+      )}
     </div>
   );
 };

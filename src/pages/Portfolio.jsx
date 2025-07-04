@@ -1,72 +1,75 @@
-// src/components/Portfolio.jsx
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../assets/style.css";
+import React, { useState } from 'react';
+// import "../assets/style.css";
+import About from "../pages/About";
+import Resume from "../pages/Resume";
+import Skills from "../pages/Skills";
+import {
+    FaHome, FaUser, FaFileAlt, FaImages, FaServicestack, FaEnvelope, FaFacebookF, FaInstagram, FaSkype, FaLinkedinIn, FaBars, FaTimes
+} from 'react-icons/fa';
+import yourImage from '../assets/images/homeimg.png';
 
-const categories = ["All Projects", "Photography", "Design", "Automotive", "Nature"];
+function Home() {
+    const [menuOpen, setMenuOpen] = useState(false);
 
-const allProjects = [
-  { id: 1, category: "Photography", image: "https://images.pexels.com/photos/450516/pexels-photo-450516.jpeg" },
-  { id: 2, category: "Photography", image: "https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg" },
-  { id: 3, category: "Design", image: "https://images.pexels.com/photos/2736834/pexels-photo-2736834.jpeg" },
-  { id: 4, category: "Automotive", image: "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg" },
-  { id: 5, category: "Nature", image: "https://images.pexels.com/photos/349758/pexels-photo-349758.jpeg" },
-  { id: 6, category: "Design", image: "https://images.pexels.com/photos/804938/pexels-photo-804938.jpeg" },
-  { id: 7, category: "Nature", image: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg" },
-];
-
-const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState("All Projects");
-
-  const filteredProjects =
-    activeCategory === "All Projects"
-      ? allProjects
-      : allProjects.filter((proj) => proj.category === activeCategory);
-
-  return (
-    <section className="portfolio-section text-white py-5">
-      <div className="container">
-        <h2 className="text-center border-title fw-bold">Portfolio</h2>
-        <p className="text-center text-muted mb-5">
-          Magnam dolores commodi suscipit. Necessitatibus eius consequatur fuga eum quidem.
-        </p>
-        <div className="row">
-          {/* Sidebar */}
-          <div className="col-md-3 mb-4">
-            <div className="sidebar rounded p-3">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  className={`category-btn btn w-100 text-start mb-2 ${
-                    activeCategory === cat ? "active" : ""
-                  }`}
-                  onClick={() => setActiveCategory(cat)}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Project Grid */}
-          <div className="col-md-9">
-            <div className="row g-4">
-              {filteredProjects.map((item) => (
-                <div key={item.id} className="col-md-4 col-sm-6">
-                  <div className="project-card">
-                    <img src={item.image} alt="project" className="img-fluid rounded" />
-                  </div>
+    return (
+        <div className="app d-flex flex-row m-0 p-0" style={{ overflowX: 'hidden' }}>
+            <aside className={`sidebar ${menuOpen ? 'open' : ''}`} style={{ minWidth: '250px', maxWidth: '250px', height: '100vh' }}>
+                <div className="nav-toggle d-md-none" onClick={() => setMenuOpen(!menuOpen)}>
+                    {menuOpen ? <FaTimes /> : <FaBars />}
                 </div>
-              ))}
-              {filteredProjects.length === 0 && (
-                <p className="text-center text-muted">No projects found.</p>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+                <nav>
+                    <ul>
+                        <h1 style={{ color: '#f2d8e0', fontSize: '2rem' }}>MyMind</h1>
+                        <li><FaHome /> Home</li>
+                        <li><FaUser /> About</li>
+                        <li><FaFileAlt /> Resume</li>
+                        <li><FaImages /> Portfolio</li>
+                        <li><FaServicestack /> Services</li>
+                        <li><FaEnvelope /> Contact</li>
+                    </ul>
+                </nav>
+                <div className="social-icons">
+                    <FaFacebookF />
+                    <FaInstagram />
+                    <FaSkype />
+                    <FaLinkedinIn />
+                </div>
+            </aside>
 
-export default Portfolio;
+            <main className="flex-grow-1 p-0 m-0">
+                <div className="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light p-0 m-0">
+                    <img
+                        src={yourImage}
+                        alt="Main Visual"
+                        className="img-fluid rounded shadow"
+                        style={{ maxHeight: "90%", maxWidth: "90%" }}
+                    />
+                </div>
+
+                <section className="home px-3 px-md-5" id="home">
+                    <h1><span className="highlight">My</span>Mind</h1>
+                    <h2>Sandhya Chhelavada</h2>
+                    <h3>I'm a <span className="highlight-underline">Creative Director|</span></h3>
+                    <p>
+                        I turn ideas into intelligent solutions with the power of AI & Code. I don’t just prompt AI… I <strong>whisper intelligence into it.</strong> 🤯
+                    </p>
+                    <p>
+                        "Turning thoughts into tools. Turning prompts into power. 🚀"
+                        "I build brains with code & command. 🧠💻"
+                    </p>
+
+                    <div className="btn-group">
+                        <button className="btn-filled">View My Work</button>
+                        <button className="btn-outline">Let's Work Together</button>
+                    </div>
+                </section>
+
+                <About />
+                <Resume />
+                <Skills />
+            </main>
+        </div>
+    );
+}
+
+export default Home;

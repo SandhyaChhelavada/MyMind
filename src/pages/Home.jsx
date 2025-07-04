@@ -1,85 +1,79 @@
-import React, { useState } from 'react';
-import "../assets/style.css";
-import About from "../pages/About";
-import Resume from "../pages/Resume";
-import Skills from "../pages/Skills";
-import {
-    FaHome, FaUser, FaFileAlt, FaImages, FaServicestack, FaEnvelope, FaFacebookF, FaInstagram, FaSkype, FaLinkedinIn, FaBehance, FaDribbble, FaBars, FaTimes, FaChevronDown
-} from 'react-icons/fa';
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
+import AOS from "aos";
 import yourImage from '../assets/images/homeimg.png';
+import About from "../pages/About";
+import Skills from "../pages/Skills";
+import Resume from "../pages/Resume";
 
+const words = ["Engineer", "Creator", "Coder", "AI Enthusiast", "Prompt Wizard"];
 
+export default function Home() {
+  const [wordIndex, setWordIndex] = useState(0);
 
-function Home() {
-    const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % words.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
-    return (
-        <div className="app">
-            <aside className={`sidebar ${menuOpen ? 'open' : ''}`}>
-                <div className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-                    {menuOpen ? <FaTimes /> : <FaBars />}
-                </div>
-                <nav>
-                    <ul>
-                        <li><FaHome /> Home</li>
-                        <li><FaUser /> About</li>
-                        <li><FaFileAlt /> Resume</li>
-                        <li><FaImages /> Portfolio</li>
-                        <li><FaServicestack /> Services</li>
-                        <li><FaChevronDown /> Dropdown</li>
-                        <li><FaEnvelope /> Contact</li>
-                    </ul>
-                </nav>
-                <div className="social-icons">
-                    <FaFacebookF />
-                    <FaInstagram />
-                    <FaSkype />
-                    <FaLinkedinIn />
-                </div>
-            </aside>
-
-            <main>
-                <div className="container text-center">
-
-                    <div className="image-wrapper">
-                        <img
-                            src={yourImage} // ✅ use imported image
-                            alt="My Work"
-                            className="img-fluid rounded shadow"
-                        />
-                    </div>
-                </div>
-                <section className="home" id="home">
-                    <h1><span className="highlight">Snap</span>Folio</h1>
-                    <h2>Alexander Chen</h2>
-                    <h3>I'm a <span className="highlight-underline">Creative Director|</span></h3>
-                    <p>
-                        Passionate about creating exceptional digital experiences that blend innovative design with functional development.
-                        Let's bring your vision to life.
-                    </p>
-                    <div className="btn-group">
-                        <button className="btn-filled">View My Work</button>
-                        <button className="btn-outline">Get In Touch</button>
-                    </div>
-                    <div className="bottom-icons">
-                        <FaDribbble />
-                        <FaBehance />
-                        <FaLinkedinIn />
-                    </div>
-                </section>
-
-                <section className="about" id="about">
-                    {/* <div className="photo">
-            <img src={src} alt="Alexander Chen" />
-          </div> */}
-                </section>
-                 <About />
-                  {/* <Portfolio /> */}
-                  <Resume />
-                  <Skills />
-            </main>
+  return (
+    <div className="container-fluid p-0 m-0 position-relative">
+      {/* <nav className="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute w-100 z-3">
+        <div className="container">
+          <a className="navbar-brand fw-bold text-white" href="#">My Mind</a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item"><Link className="nav-link text-white" to="/">Home</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white" to="/timelineAbout">About</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white" to="/resume">Resume</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white" to="/skills">Skills</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white" to="/portfolio">Portfolio</Link></li>
+              <li className="nav-item"><Link className="nav-link text-white" to="/contact">Contact Us</Link></li>
+            </ul>
+          </div>
         </div>
-    );
-}
+      </nav> */}
 
-export default Home;
+      <img src={yourImage} alt="Main Visual" className="img-fluid w-100 vh-100 object-fit-cover" />
+
+      <div className="glass-overlay d-flex justify-content-center align-items-center text-center">
+        <section className="home px-3 px-md-5" id="home" data-aos="fade-up">
+          <h1 className="display-4 fw-bold">Sandhya Chhelavada</h1>
+          <h3>
+            I'm a <span className="highlight-underline" style={{ color: "#7d00ff" }}>{words[wordIndex]}</span>
+          </h3>
+          <p className="lead">“Speak AI. Speak Success.”</p>
+          <p className="mb-4">
+            "Turning thoughts into tools. Turning prompts into power. 🚀"
+            <br />"I build brains with code & command. 🧠💻"
+          </p>
+          <div className="btn-group">
+            <button className="btn btn-light me-2">View My Work</button>
+            <button className="btn btn-outline-light">Let's Work Together</button>
+          </div>
+        </section>
+      </div>
+      <About />
+      {/* <Resume />
+      <Skills /> */}
+    </div>
+
+  );
+}
