@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "aos/dist/aos.css";
@@ -9,6 +10,7 @@ export default function AboutCard() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="container-fluid px-3 px-md-5 py-5 overflow-hidden bg-light">
@@ -44,7 +46,10 @@ export default function AboutCard() {
 
         {/* Summary Section */}
         <div className="col-12 col-lg-7" data-aos="fade-left">
-          <button className="btn btn-secondary rounded-pill px-4 mb-4 fw-semibold">
+          <button
+            className="btn btn-secondary rounded-pill px-4 mb-4 fw-semibold"
+            onClick={() => navigate("/timelineabout")}
+          >
             Get to Know Me
           </button>
           <h2 className="fw-bold text-black">
@@ -55,7 +60,7 @@ export default function AboutCard() {
             I'm Sandhya Chhelavada — a passionate Prompt Engineer & Python Developer.
             I build smart tools, design powerful prompts, and create tech that thinks.
 
-            
+
 
 
           </p>
@@ -71,7 +76,7 @@ export default function AboutCard() {
             I’m Sandhya — and I’ve got a keyboard, a dream, and a deep passion for building things that matter.
           </p>
 
-         
+
         </div>
       </div>
     </div>

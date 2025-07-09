@@ -8,8 +8,11 @@ import yourImage from '../assets/images/homeimg.png';
 import About from "../pages/About";
 import Skills from "../pages/Skills";
 import Resume from "../pages/Resume";
+import Prompt from "../components/Prompt";
+import Timeline from '../components/Timeline';
 
-const words = ["Engineer", "Creator", "Coder", "AI Enthusiast", "Prompt Wizard"];
+
+const words = [" Prompt Engineer", "Creator", "Coder", "AI Enthusiast", "Prompt Wizard"];
 
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
@@ -24,32 +27,6 @@ export default function Home() {
 
   return (
     <div className="container-fluid p-0 m-0 position-relative">
-      {/* <nav className="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute w-100 z-3">
-        <div className="container">
-          <a className="navbar-brand fw-bold text-white" href="#">My Mind</a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item"><Link className="nav-link text-white" to="/">Home</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="/timelineAbout">About</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="/resume">Resume</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="/skills">Skills</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="/portfolio">Portfolio</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="/contact">Contact Us</Link></li>
-            </ul>
-          </div>
-        </div>
-      </nav> */}
 
       <img src={yourImage} alt="Main Visual" className="img-fluid w-100 vh-100 object-fit-cover" />
 
@@ -71,6 +48,8 @@ export default function Home() {
         </section>
       </div>
       <About />
+       <Prompt />
+       <Timeline />
       {/* <Resume />
       <Skills /> */}
     </div>

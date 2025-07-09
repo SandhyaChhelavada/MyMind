@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Loader from "./components/Loader";
+import Prmopt from "./components/Prompt";
+import Timeline from "./components/Timeline";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Portfolio from "./pages/Portfolio";
 import Skills from "./pages/Skills";
 import TimelineAbout from "./pages/TimelineAbout";
-// import Contact from "./pages/Contact";
+import Contact from "./pages/Contact";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -33,7 +35,7 @@ const App = () => {
             <Route path="/resume" element={<Resume />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/portfolio" element={<Portfolio />} />
-            {/* <Route path="/contact" element={<Contact />} /> */}
+            <Route path="/contact" element={<Contact />} />
           </Route>
         </Routes>
       )}

@@ -1,126 +1,93 @@
-import React from "react";
+// File: src/components/SkillsSection.jsx
+
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../assets/style.css";
-import { BsDownload, BsChatDots } from "react-icons/bs";
-import { FaSmile, FaRegListAlt, FaHeadphones, FaUsers } from "react-icons/fa";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import Prompt from "../components/Prompt";
+
+const SkillBar = ({ title, level, description }) => {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <div
+      className="mb-4"
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
+    >
+      <div className="d-flex justify-content-between">
+        <strong className="text-white">{title}</strong>
+        <span className="text-white">{level}%</span>
+      </div>
+      <div className="progress" style={{ height: "8px" }}>
+        <div
+          className="progress-bar"
+          role="progressbar"
+          style={{
+            width: `${level}%`,
+            backgroundColor: "#a67c52",
+            transition: "width 1s ease-in-out",
+          }}
+        ></div>
+      </div>
+      {visible && description && (
+        <small className="text-muted d-block mt-1 fade-in">{description}</small>
+      )}
+    </div>
+  );
+};
 
 const Skills = () => {
-  return (
-    <div className="skills-section text-white py-5">
-      <div className="container">
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
 
-        {/* Skills */}
-        <h2 className="text-center mb-2 fw-bold text-white border-title">Skills</h2>
-        <p className="text-center mb-5 text-muted">
-          Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
-        </p>
+  return (
+    <div className="py-5" style={{ backgroundColor: "#111" }}>
+      <div className="container" data-aos="fade-up">
+        <div className="text-center text-white mb-5">
+          <h2 className="fw-bold">
+            <span style={{ borderBottom: "3px solid #a67c52" }}>Skills</span>
+          </h2>
+          <p className="text-muted">
+            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+          </p>
+        </div>
 
         <div className="row g-4">
-          {/* Front-end */}
           <div className="col-md-6">
-            <div className="skill-box p-4 rounded">
-              <h4 className="fw-bold">Front-end Development</h4>
-              <div className="skill-item mt-4">
-                <label>HTML/CSS</label>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "95%" }}>95%</div>
-                </div>
-              </div>
-              <div className="skill-item mt-4">
-                <label>JavaScript</label>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "85%" }}>85%</div>
-                </div>
-              </div>
-              <div className="skill-item mt-4">
-                <label>React</label>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "80%" }}>80%</div>
-                </div>
-              </div>
+            <div className="bg-dark p-4 rounded shadow" data-aos="fade-right">
+              <h4 className="text-white mb-4">Front-end Development</h4>
+              <SkillBar title="HTML/CSS" level={95} description="Mastery in HTML5 and modern CSS3 techniques." />
+              <SkillBar title="JavaScript" level={85} description="Expert in ES6+, DOM, and browser APIs." />
+              <SkillBar title="React" level={80} description="Hooks, component architecture, and state management." />
             </div>
           </div>
 
-          {/* Back-end */}
           <div className="col-md-6">
-            <div className="skill-box p-4 rounded">
-              <h4 className="fw-bold">Back-end Development</h4>
-              <div className="skill-item mt-4">
-                <label>Node.js</label>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "75%" }}>75%</div>
-                </div>
-              </div>
-              <div className="skill-item mt-4">
-                <label>Python</label>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "70%" }}>70%</div>
-                </div>
-              </div>
-              <div className="skill-item mt-4">
-                <label>SQL</label>
-                <div className="progress">
-                  <div className="progress-bar" style={{ width: "65%" }}>65%</div>
-                </div>
-              </div>
+            <div className="bg-dark p-4 rounded shadow" data-aos="fade-left">
+              <h4 className="text-white mb-4">Back-end Development</h4>
+              <SkillBar title="Node.js" level={75} description="Built scalable REST APIs and real-time apps." />
+              <SkillBar title="Python" level={70} description="Flask, automation, scripting tasks." />
+              <SkillBar title="SQL" level={65} description="Joins, queries, and database normalization." />
             </div>
           </div>
         </div>
-
-        {/* Resume Info */}
-        <div className="row text-white mt-5 align-items-center">
-          <div className="col-md-6 mb-3">
-            <h6 className="text-muted">Education</h6>
-            <strong className="text-white">Computer Science, MIT</strong>
-          </div>
-          <div className="col-md-6 mb-3">
-            <h6 className="text-muted">Languages</h6>
-            <strong className="text-white">English, Spanish, French</strong>
-          </div>
-          <div className="col-md-12 d-flex gap-3 flex-wrap mt-3">
-            <button className="btn btn-resume">
-              <BsDownload className="me-2" />
-              Download Resume
-            </button>
-            <button className="btn btn-outline-light">
-              <BsChatDots className="me-2" />
-              Let’s Talk
-            </button>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="row text-center mt-5 g-4">
-          <div className="col-6 col-md-3">
-            <div className="stat-box">
-              <FaSmile className="stat-icon text-warning" />
-              <h3>232</h3>
-              <p>Happy Clients</p>
-            </div>
-          </div>
-          <div className="col-6 col-md-3">
-            <div className="stat-box">
-              <FaRegListAlt className="stat-icon text-orange" />
-              <h3>521</h3>
-              <p>Projects</p>
-            </div>
-          </div>
-          <div className="col-6 col-md-3">
-            <div className="stat-box">
-              <FaHeadphones className="stat-icon text-success" />
-              <h3>1463</h3>
-              <p>Hours Of Support</p>
-            </div>
-          </div>
-          <div className="col-6 col-md-3">
-            <div className="stat-box">
-              <FaUsers className="stat-icon text-pink" />
-              <h3>15</h3>
-              <p>Hard Workers</p>
-            </div>
-          </div>
-        </div>
+      
       </div>
+
+      <style>{`
+        .fade-in {
+          animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(5px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+      <br />
+         <Prompt />
     </div>
   );
 };

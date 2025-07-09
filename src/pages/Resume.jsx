@@ -7,11 +7,22 @@ const Resume = () => {
   return (
     <section className="resume-section text-white py-5">
       <div className="container">
-        <h2 className="text-center fw-bold border-title">Resume</h2>
-        <p className="text-center text-muted mb-5">
+        <h2 className="text-center fw-bold border-title text-bold">Resume</h2>
+        <p className="text-center text-muted mb-4">
           Magnam dolores commodi suscipit. Necessitatibus eius consequatur fuga eum quidem. Sit sint
           consectetur velit. Quisquam quos cupiditate.
         </p>
+
+        <div className="text-center mb-5">
+          <a
+            href="/assets/resume.pdf"
+            download
+            className="btn btn-warning btn-lg fw-bold px-4"
+          >
+            <i className="bi bi-download me-2"></i>
+            Download Resume
+          </a>
+        </div>
 
         <div className="row g-4">
           {/* LEFT COLUMN */}
@@ -31,13 +42,13 @@ const Resume = () => {
               <h6 className="mt-4 fw-bold">Contact Information</h6>
               <ul className="list-unstyled">
                 <li>
-                  <i className="bi bi-geo-alt-fill text-warning me-2"></i>742 Evergreen Terrace, Springfield, MA 02101
+                  <i className="bi bi-geo-alt-fill text-warning me-2"></i>Rajkot, Gujarat
                 </li>
                 <li>
-                  <i className="bi bi-envelope-fill text-warning me-2"></i>contact@example.com
+                  <i className="bi bi-envelope-fill text-warning me-2"></i>schhelavadawork@gmail.com
                 </li>
                 <li>
-                  <i className="bi bi-telephone-fill text-warning me-2"></i>+1 (555) 123-4567
+                  <i className="bi bi-telephone-fill text-warning me-2"></i>6351804604
                 </li>
                 <li>
                   <i className="bi bi-linkedin text-warning me-2"></i>linkedin.com/in/example
@@ -46,25 +57,25 @@ const Resume = () => {
 
               <h6 className="mt-4 fw-bold">Technical Skills</h6>
               <div className="mb-2">
-                <span>Web Development</span>
+                <span>Prompt Enginayar</span>
                 <div className="progress">
                   <div className="progress-bar" style={{ width: "95%" }}>95%</div>
                 </div>
               </div>
               <div className="mb-2">
-                <span>UI/UX Design</span>
+                <span>Web Development</span>
                 <div className="progress">
                   <div className="progress-bar" style={{ width: "85%" }}>85%</div>
                 </div>
               </div>
               <div className="mb-2">
-                <span>Cloud Architecture</span>
+                <span>Image Creater</span>
                 <div className="progress">
                   <div className="progress-bar" style={{ width: "90%" }}>90%</div>
                 </div>
               </div>
               <div className="mb-2">
-                <span>Project Management</span>
+                <span>Python Devloper</span>
                 <div className="progress">
                   <div className="progress-bar" style={{ width: "80%" }}>80%</div>
                 </div>
@@ -81,9 +92,9 @@ const Resume = () => {
               </h4>
 
               <div className="mt-4">
-                <h5 className="fw-bold">Senior Software Architect</h5>
-                <span className="text-warning">2022 - Present</span>
-                <p className="mb-1"><i className="bi bi-building me-2"></i>Tech Innovations Inc.</p>
+                <h5 className="fw-bold">Web Designer</h5>
+                <span className="text-warning">2024 - 2025</span>
+                <p className="mb-1"><i className="bi bi-building me-2"></i>Coding Bnadar</p>
                 <ul>
                   <li>Lead enterprise-scale architecture design</li>
                   <li>Mentor team of 12 developers</li>
@@ -92,16 +103,6 @@ const Resume = () => {
                 </ul>
               </div>
 
-              <div className="mt-4">
-                <h5 className="fw-bold">Lead Developer</h5>
-                <span className="text-warning">2019 - 2022</span>
-                <p className="mb-1"><i className="bi bi-building me-2"></i>Digital Solutions Corp.</p>
-                <ul>
-                  <li>CI/CD implementation, 60% faster deployment</li>
-                  <li>Team management across 8 projects</li>
-                  <li>Raised test coverage from 45% to 90%</li>
-                </ul>
-              </div>
 
               <h4 className="fw-bold mt-5">
                 <i className="bi bi-mortarboard-fill text-warning me-2"></i>
@@ -109,16 +110,16 @@ const Resume = () => {
               </h4>
 
               <div className="mt-3">
-                <h5 className="fw-bold">Master of Science in CS</h5>
-                <span className="text-warning">2017 - 2019</span>
-                <p className="mb-1"><i className="bi bi-building me-2"></i>Stanford University</p>
+                <h5 className="fw-bold">Master of Science in IT</h5>
+                <span className="text-warning">2023 - 2025</span>
+                <p className="mb-1"><i className="bi bi-building me-2"></i>BhaktKavi Narsinh Mehta University</p>
                 <p>Graduated with honors. Specialized in AI/ML.</p>
               </div>
 
               <div className="mt-3">
-                <h5 className="fw-bold">Bachelor of Science in Software Engineering</h5>
-                <span className="text-warning">2013 - 2017</span>
-                <p className="mb-1"><i className="bi bi-building me-2"></i>MIT</p>
+                <h5 className="fw-bold">Bachelor of Computer Aplication</h5>
+                <span className="text-warning">2020 - 2023</span>
+                <p className="mb-1"><i className="bi bi-building me-2"></i>Saurastra University</p>
                 <p>Dean's List, led coding club.</p>
               </div>
 
@@ -127,9 +128,8 @@ const Resume = () => {
                 Certifications
               </h4>
               <ul className="mt-3">
-                <li>AWS Certified Solutions Architect – Professional</li>
-                <li>Google Cloud Professional Cloud Architect</li>
-                <li>Certified Kubernetes Administrator (CKA)</li>
+                <li>Prompt Enginyar - Great Lerning</li>
+                <li>Graphice Cource - Samart Computer Acedmy</li>
               </ul>
             </div>
           </div>

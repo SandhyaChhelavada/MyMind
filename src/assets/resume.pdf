@@ -1,0 +1,8 @@
+<a
+  href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+  download="Sandhya_Resume.pdf"
+  className="btn btn-warning btn-lg fw-bold px-4"
+>
+  <i className="bi bi-download me-2"></i>
+  Download Resume
+</a>

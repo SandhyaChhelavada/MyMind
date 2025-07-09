@@ -58,6 +58,9 @@ export default function TimelineAbout() {
             "🌐 Web Research",
             "🖼️ Image & Content Generation",
             "🎯 Client-focused Solutions",
+            "Prompt Writing",
+            "AI Tool Integration",
+            "Automation via Prompts",
           ].map((skill, i) => (
             <div key={i} className="col">
               <div className="bg-black p-3 rounded text-center h-100 border border-secondary">
