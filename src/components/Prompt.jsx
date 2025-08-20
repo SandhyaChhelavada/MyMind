@@ -1,5 +1,3 @@
-// File: src/components/PromptCarousel.jsx
-
 import React, { useState } from "react";
 import { Carousel, Modal, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,7 +30,7 @@ const prompts = [
   {
     title: "Customer Support Chatbot",
     description: "Create instant customer support responses based on FAQ.",
-    image: "https://images.unsplash.com/photo-1581093588401-0600b7f99d3e",
+    image: "https://support.cc/images/blog/chatbot-customer-service.png?v=1682512742702523116",
     link: "https://intercom.com"
   },
   {
@@ -44,37 +42,32 @@ const prompts = [
   {
     title: "Social Media Caption Bot",
     description: "Generate catchy captions for Instagram, Twitter and more.",
-    image: "https://images.unsplash.com/photo-1581090700227-1e8f6f8b6ee3",
+    image: "https://elatre.com/wp-content/uploads/2023/10/How-Social-Media-Bots-Can-Boost-Your-Business-1-900x410.jpg",
     link: "https://later.com"
   },
   {
     title: "Email Reply Assistant",
     description: "Write professional email replies in seconds.",
-    image: "https://images.unsplash.com/photo-1588702547828-79b527d6b83e",
+    image: "https://cdn-rdstaticassets.readdle.com/spark/content_pages/guides_ai-email-reply/19.jpg",
     link: "https://flowrite.com"
   },
   {
     title: "Language Translator",
     description: "Translate text or phrases to multiple languages in context.",
-    image: "https://images.unsplash.com/photo-1549921296-3a73f419b89b",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdrvMDH0KyLD9cFUtg-RIK7GG7-GzRpE0jQA&s",
     link: "https://deepl.com"
   },
   {
     title: "YouTube Script Writer",
     description: "Generate full scripts for videos based on your title and niche.",
-    image: "https://images.unsplash.com/photo-1581092919534-ff61a50a5451",
+    image: "https://images.squarespace-cdn.com/content/v1/60956f69f8fafe4b3e171dcd/1748107551538-BG5CM0D56XG2QV3N4S0I/youtube+how+to+hire+a+youtube+script+writer+for+channel+growth.jpg",
     link: "https://vidyo.ai"
   }
 ];
 
 const Prompt = () => {
-  const [index, setIndex] = useState(0);
   const [modalShow, setModalShow] = useState(false);
   const [activePrompt, setActivePrompt] = useState(null);
-
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
 
   const openModal = (prompt) => {
     setActivePrompt(prompt);
@@ -83,13 +76,7 @@ const Prompt = () => {
 
   return (
     <div className="w-100" style={{ backgroundColor: "#111" }}>
-      <Carousel
-        fade
-        activeIndex={index}
-        onSelect={handleSelect}
-        interval={5000}
-        indicators={false}
-      >
+      <Carousel fade interval={5000} indicators={false} controls={true}>
         {prompts.map((item, idx) => (
           <Carousel.Item key={idx}>
             <img
@@ -111,17 +98,6 @@ const Prompt = () => {
           </Carousel.Item>
         ))}
       </Carousel>
-
-      <div className="d-flex justify-content-center gap-2 mt-3">
-        {prompts.map((_, i) => (
-          <span
-            key={i}
-            className={`rounded-circle bg-${i === index ? "danger" : "secondary"}`}
-            style={{ width: "12px", height: "12px", display: "inline-block", cursor: "pointer" }}
-            onClick={() => setIndex(i)}
-          ></span>
-        ))}
-      </div>
 
       <Modal show={modalShow} onHide={() => setModalShow(false)} centered>
         <Modal.Header closeButton>

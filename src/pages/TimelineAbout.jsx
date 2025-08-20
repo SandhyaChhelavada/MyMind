@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import mymind from '../assets/images/My Mind.png';
 
 export default function TimelineAbout() {
   useEffect(() => {
@@ -10,39 +11,61 @@ export default function TimelineAbout() {
   }, []);
 
   return (
-    <div className="container py-5 px-3 px-md-5 text-white bg-dark">
+    <div className=" py-5 px-3 px-md-5 text-white bg-dark">
+
       {/* WHO AM I */}
       <div className="row align-items-center mb-5" data-aos="fade-up">
         <div className="col-lg-6">
           <img
-            src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?fit=crop&w=800&q=80"
-            alt="Sandhya Profile"
+            src={mymind}
+            alt="Sandhya Chhelavada"
             className="img-fluid rounded-4 shadow"
           />
         </div>
         <div className="col-lg-6">
           <h2 className="text-warning fw-bold mb-3">WHO AM I?</h2>
-          <p>Hi, I’m <strong>Sandhya</strong> — a self-taught Prompt Engineer from India with a deep love for AI, words, and logic.</p>
-          <p>It all started with a single question: <em>“How does ChatGPT understand what I ask?”</em></p>
-          <p>That curiosity became my path. From a social media creative to exploring prompt mechanics, I’ve turned curiosity into a career.</p>
-          <p>Now, I help machines understand humans better through powerful, precise prompts.</p>
+          <p>Hi, I’m <strong>Sandhya</strong> — a passionate, self-taught <strong>Prompt Engineer</strong> from India with a curious mind and a heart full of logic, language, and innovation.</p>
+
+          <p>My journey began with a simple question:
+            <em>“How does ChatGPT understand what I ask?”</em></p>
+
+          <p>That one question sparked a fire. From crafting <strong>creative social media content</strong> to mastering the <strong>mechanics of prompts</strong>, I’ve transformed curiosity into capability — and passion into purpose.</p>
+
+          <p>Today, I specialize in designing <strong>powerful, precise, and human-centered prompts</strong> that bridge the gap between humans and AI.</p>
+
+          <p>I don’t just write prompts — <em>I speak the language of machines to reflect the voice of people.</em></p>
+
+          <ul>
+            <li>🔧 I decode how AI thinks.</li>
+            <li>🧠 I craft logic with empathy.</li>
+            <li>💡 I make machines respond with meaning.</li>
+          </ul>
+
+          <p><strong>I’m Sandhya.</strong>
+            <strong>I build conversations between minds and machines.</strong>
+            <strong>I am a Prompt Engineer.</strong></p>
+
+
         </div>
       </div>
-       <div className="row text-center mt-5">
-            <div className="col-4">
-              <h4 className="text" style={{ color: " #7d00ff" }}>10+</h4>
-              <small className="text-secondary">Projects Completed</small>
-            </div>
-            <div className="col-4">
-              <h4 className="text" style={{ color: " #7d00ff" }}>1+</h4>
-              <small className="text-secondary">Years Experience</small>
-            </div>
-            <div className="col-4">
-              <h4 className="text" style={{ color: " #7d00ff" }}>2%</h4>
-              <small className="text-secondary">Client Satisfaction</small>
-            </div>
-          </div>
-          <br />
+
+      {/* EXPERIENCE */}
+      <div className="row text-center mt-5">
+        <div className="col-4">
+          <h4 className="text" style={{ color: "#7d00ff" }}>10+</h4>
+          <small className="text-secondary">Projects Completed</small>
+        </div>
+        <div className="col-4">
+          <h4 className="text" style={{ color: "#7d00ff" }}>1+</h4>
+          <small className="text-secondary">Years Experience</small>
+        </div>
+        <div className="col-4">
+          <h4 className="text" style={{ color: "#7d00ff" }}>2%</h4>
+          <small className="text-secondary">Client Satisfaction</small>
+        </div>
+      </div>
+
+      <br />
 
       {/* SKILLS */}
       <div className="mb-5" data-aos="fade-up">
@@ -71,9 +94,35 @@ export default function TimelineAbout() {
         </div>
       </div>
 
-      
+      {/* 🔧 TOOLS I USE */}
+      <div className="mb-5" data-aos="fade-up">
+        <h3 className="text-warning fw-bold mb-3">🧰 Tools I Use</h3>
+        <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-3">
+          {[
+            { name: "ChatGPT", icon: "bi-chat-dots" },
+            { name: "Claude AI", icon: "bi-lightbulb" },
+            { name: "Google Gemini", icon: "bi-google" },
+            { name: "Midjourney", icon: "bi-brush" },
+            { name: "DALL·E 3", icon: "bi-image" },
+            { name: "Leonardo AI", icon: "bi-palette" },
+            { name: "GitHub Copilot", icon: "bi-github" },
+            { name: "Notion AI", icon: "bi-journal-text" },
+            { name: "Canva AI", icon: "bi-easel2" },
+            { name: "Pika Labs", icon: "bi-camera-reels" },
+            { name: "RunwayML", icon: "bi-film" },
+            { name: "Perplexity AI", icon: "bi-search" },
+          ].map((tool, i) => (
+            <div key={i} className="col">
+              <div className="bg-black p-3 rounded text-center h-100 border border-secondary">
+                <i className={`bi ${tool.icon} me-2`} style={{ color: "#7d00ff" }}></i>
+                {tool.name}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      {/* ACHIEVEMENTS Timeline */}
+      {/* ACHIEVEMENTS */}
       <div className="mb-5" data-aos="fade-up">
         <h3 className="text-warning fw-bold mb-4">Achievements</h3>
         <div className="border-start border-3 ps-3 ms-2 timeline">
@@ -81,7 +130,6 @@ export default function TimelineAbout() {
             "🏆 Completed 30-day Prompt Engineering Challenge",
             "📜 Built a Prompt Bank with 100+ niche-specific prompts",
             "💼 Created client-winning prompts for digital marketing campaigns",
-            "🚀 Finalist in “AI Prompt Hackathon”",
             "👩‍💻 Helped 20+ people learn prompt engineering basics",
           ].map((item, i) => (
             <div key={i} className="mb-3">
@@ -110,6 +158,7 @@ export default function TimelineAbout() {
           ))}
         </div>
       </div>
+
     </div>
   );
 }
